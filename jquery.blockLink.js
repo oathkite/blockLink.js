@@ -3,9 +3,13 @@
 		var self = this;
 		return self.each(function() {
 			var url = $(this).find('a:first').attr('href');
-			$(this).css('cursor', 'pointer').click(function() {
-				location = url;
+			$(this).css('cursor', 'pointer').click(function(e) {
+				if ($(this).find('a:first').attr('target') === '_blank' || e.metaKey) {
+					window.open(url, '_blank');
+				} else {
+					location = url;
+				}
 			});
 		});
-	}
+	};
 })(jQuery);
