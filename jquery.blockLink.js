@@ -6,6 +6,7 @@
 			$(this).css('cursor', 'pointer').click(function(e) {
 				if ($(this).find('a:first').attr('target') === '_blank' || e.metaKey) {
 					window.open(url, '_blank');
+					return false;
 				} else {
 					location = url;
 				}
